@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:slideshow="http://slideshow.com">
+    <PreferenceCategory
+        android:title="@string/general">
+
+        <Preference
+            android:title="@string/image_folder"
+            android:key="path"/>
+
+        <com.stereo23.slideshow.utilities.SeekBarPreference
+            android:key="interval"
+            android:title="Interval"
+            android:summary="Adjust slide speed"
+            android:defaultValue="9"
+            android:max="60"
+            slideshow:min="1"
+            slideshow:unitsLeft=""
+            slideshow:unitsRight=" sec."/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/autostart">
+        <CheckBoxPreference
+            android:title="@string/start_after_reboot"
+            android:summary="@string/start_after_reboot_summary"
+            android:key="start_after_reboot"
+            android:defaultValue="false"/>
+        <CheckBoxPreference
+            android:title="@string/start_when_power_connected"
+            android:summary="@string/start_when_power_connected_summary"
+            android:key="start_when_power_connected"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/scheduled_start">
+            <CheckBoxPreference
+                android:key="schedule_start"
+                android:summary="@string/schedule_start_summary"
+                android:title="@string/schedule_start_title"
+                android:defaultValue="false" />
+            <Preference
+                android:title="@string/start_time"
+                android:key="start_time"
+                android:enabled="false"/>
+            <Preference
+                android:title="@string/stop_time"
+                android:key="stop_time"
+                android:enabled="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>

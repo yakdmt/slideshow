@@ -1,12 +1,5 @@
 package com.stereo23.slideshow.utilities;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,6 +18,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 /**
  * Created by Username on 05.09.2014.
  */
@@ -51,12 +51,12 @@ public class DirectoryChooserDialog {
     public DirectoryChooserDialog(Context context, ChosenDirectoryListener chosenDirectoryListener)
     {
         m_context = context;
-        m_sdcardDirectory = Environment.getExternalStorageDirectory().getAbsolutePath();
+        m_sdcardDirectory = Environment.getExternalStorageDirectory().getParent();
         m_chosenDirectoryListener = chosenDirectoryListener;
 
         try
         {
-            m_sdcardDirectory = new File(m_sdcardDirectory).getCanonicalPath();
+            m_sdcardDirectory = new File("/storage").getCanonicalPath();
         }
         catch (IOException ioe){
 
