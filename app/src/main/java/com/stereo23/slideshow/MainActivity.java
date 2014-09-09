@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         String folderPath = PreferenceManager.getDefaultSharedPreferences(this).getString("path", "null");
         int interval = PreferenceManager.getDefaultSharedPreferences(this).getInt("interval", 0);
-        if (savedInstanceState == null ) {
+        if (savedInstanceState == null || isScheduleStart) {
                 Fragment fragment = new SlideshowFragment();
                 if (isScheduleStart) {
                     Bundle bundle = new Bundle();
