@@ -1,6 +1,7 @@
 package com.stereo23.slideshow;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -94,7 +95,11 @@ public class SlideshowFragment extends Fragment {
                                     getFragmentManager().popBackStack();
                                 }
                                 timer.cancel();
-                                getActivity().finish();
+                                isScheduledStart=false;
+                                Intent startMain = new Intent(Intent.ACTION_MAIN);
+                                startMain.addCategory(Intent.CATEGORY_HOME);
+                                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(startMain);
                             }
                             if (currentImage+1 < mUrls.length){
                                 currentImage++;
